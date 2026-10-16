@@ -103,12 +103,19 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
             <div className="space-y-6">
               {/* Image & Quick Metrics Split */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                <div className="md:col-span-7 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 max-h-72">
+                <div className="md:col-span-7 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 h-64 sm:h-72 w-full relative">
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     className="w-full h-full object-cover"
+                    loading="eager"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.includes('/assets/images/')) {
+                        target.src = `/assets/images/${project.id === 'child-safety-sos' ? 'project_child_safety_1792086649458.jpg' : project.id === 'smart-pet-feeder' ? 'project_smart_feeder_1792086649785.jpg' : 'project_line_follower_1792086649565.jpg'}`;
+                      }
+                    }}
                   />
                 </div>
                 <div className="md:col-span-5 flex flex-col justify-between space-y-3">

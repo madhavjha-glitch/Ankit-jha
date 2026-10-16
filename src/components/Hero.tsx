@@ -189,7 +189,14 @@ export const Hero: React.FC<HeroProps> = ({
                 src={heroHardwareImg}
                 alt="IoT Hardware Workbench with ESP32 and Oscilloscope"
                 className="w-full h-[380px] lg:h-[460px] object-cover transition-transform duration-700 group-hover:scale-102"
+                loading="eager"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.src.includes('/assets/images/')) {
+                    target.src = '/assets/images/hero_iot_hardware_1792086649166.jpg';
+                  }
+                }}
               />
               
               {/* Subtle contrast gradient */}

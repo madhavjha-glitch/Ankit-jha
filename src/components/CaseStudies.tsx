@@ -68,12 +68,22 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 {/* Visual Media Column */}
                 <div className="lg:col-span-5 flex flex-col justify-between">
-                  <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 aspect-4/3 relative group">
+                  <div 
+                    onClick={() => onSelectProject(project)}
+                    className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 aspect-[4/3] min-h-[220px] h-60 sm:h-72 w-full relative group cursor-pointer"
+                  >
                     <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                      loading="eager"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (!target.src.includes('/assets/images/')) {
+                          target.src = `/assets/images/${project.id === 'child-safety-sos' ? 'project_child_safety_1792086649458.jpg' : project.id === 'smart-pet-feeder' ? 'project_smart_feeder_1792086649785.jpg' : 'project_line_follower_1792086649565.jpg'}`;
+                        }
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                       <span className="text-xs text-white font-medium inline-flex items-center gap-1">
