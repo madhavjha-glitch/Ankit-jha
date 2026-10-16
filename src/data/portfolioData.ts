@@ -1,3 +1,7 @@
+import childSafetyImg from '../assets/images/project_child_safety_1792086649458.jpg';
+import smartFeederImg from '../assets/images/project_smart_feeder_1792086649785.jpg';
+import lineFollowerImg from '../assets/images/project_line_follower_1792086649565.jpg';
+
 export interface Project {
   id: string;
   title: string;
@@ -69,7 +73,7 @@ export const PROJECTS: Project[] = [
     category: "iot",
     categoryLabel: "IoT Wearable · Telephony & Geolocation",
     headline: "Wearable safety device with tactile SOS emergency trigger, cellular voice calling, and real-time SMS Google Maps dispatch.",
-    image: "/src/assets/images/project_child_safety_1792086649458.jpg",
+    image: childSafetyImg,
     metrics: [
       { label: "SMS Dispatch Latency", value: "< 4.2s" },
       { label: "GPS Fix Accuracy", value: "±2.5m" },
@@ -163,7 +167,7 @@ void sendEmergencySMS(float lat, float lon) {
     category: "telemetry",
     categoryLabel: "IoT & Cloud · Ultrasonic Telemetry",
     headline: "Automated Wi-Fi pet nutrition dispenser with ultrasonic hopper monitoring and real-time Blynk dashboard control.",
-    image: "/src/assets/images/project_smart_feeder_1792086649785.jpg",
+    image: smartFeederImg,
     metrics: [
       { label: "Portion Precision", value: "±5 grams" },
       { label: "Hopper Telemetry", value: "Real-time %" },
@@ -269,7 +273,7 @@ void updateFoodLevelTelemetry() {
     category: "robotics",
     categoryLabel: "Robotics · Motor Control & Embedded C",
     headline: "Autonomous mobile chassis with multi-sensor infrared reflectance array, dynamic differential PWM steering, and dual H-bridge motor drive.",
-    image: "/src/assets/images/project_line_follower_1792086649565.jpg",
+    image: lineFollowerImg,
     metrics: [
       { label: "Track Retention", value: "99.2%" },
       { label: "Steering Latency", value: "< 15ms" },

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import heroHardwareImg from '../assets/images/hero_iot_hardware_1792086649166.jpg';
 import { 
   Cpu, 
   ChevronRight, 
@@ -185,7 +186,7 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="relative rounded-2xl overflow-hidden border border-slate-300/80 dark:border-slate-700/80 bg-slate-950 shadow-2xl group">
               <img
-                src="/src/assets/images/hero_iot_hardware_1792086649166.jpg"
+                src={heroHardwareImg}
                 alt="IoT Hardware Workbench with ESP32 and Oscilloscope"
                 className="w-full h-[380px] lg:h-[460px] object-cover transition-transform duration-700 group-hover:scale-102"
                 referrerPolicy="no-referrer"
